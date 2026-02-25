@@ -32,5 +32,3 @@ def submit_contact():
     }
     contact_collection.insert_one(contact_data)
     return jsonify({"status": "success"})
-
-app.run(debug=True)

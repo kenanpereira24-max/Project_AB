@@ -9,14 +9,12 @@
         background: url("background.jpeg") no-repeat center center fixed;
         background-size: cover;
       }
-
       header {
         background: rgba(10, 61, 145, 0.85);
         padding: 20px;
         text-align: center;
         color: white;
       }
-
       nav {
         background: rgba(18, 86, 200, 0.85);
         padding: 12px;
@@ -24,7 +22,6 @@
         justify-content: center;
         gap: 20px;
       }
-
       nav a {
         color: white;
         background: #0d47a1;
@@ -33,11 +30,9 @@
         text-decoration: none;
         font-weight: bold;
       }
-
       nav a:hover {
         background: #1565c0;
       }
-
       .container {
         margin-top: 60px;
         width: 70%;
@@ -46,16 +41,13 @@
         text-align: center;
         color: rgb(10, 10, 10);
       }
-
       h2 {
         font-size: 35px;
       }
-
       p {
         font-size: 20px;
         line-height: 1.5;
       }
-
       .donation-form {
         width: 50%;
         margin: auto;
@@ -70,7 +62,6 @@
         margin-bottom: 30px;
         margin-top: 30px;
       }
-
       .donation-form input,
       .donation-form textarea {
         padding: 10px;
@@ -81,12 +72,10 @@
         background: white;
         color: black;
       }
-
       .donation-form textarea {
         height: 120px;
         resize: vertical;
       }
-
       .donation-form button {
         background: #0d47a1;
         color: white;
@@ -97,7 +86,6 @@
         cursor: pointer;
         font-weight: bold;
       }
-
       .donation-form button:hover {
         background: #1565c0;
       }
@@ -118,9 +106,7 @@
 
     <div class="container">
       <h2>Contact Us</h2>
-
       <h3>Our Branch Addresses</h3>
-
       <p>
         <strong>Bangalore Branch</strong><br />
         No. 49, Thagachaguppe Village, Bangalore – 560074<br />
@@ -128,14 +114,10 @@
       </p>
 
       <h3>Send Us a Message</h3>
-      <form
-        class="donation-form"
-        action="https://project-ab-fx9k.onrender.com/submit_contact"
-        method="POST"
-      >
+
+      <form class="donation-form" id="contactForm">
         <label>Your Name</label>
         <input type="text" name="name" placeholder="Enter your name" required />
-
         <label>Email Address</label>
         <input
           type="email"
@@ -143,14 +125,12 @@
           placeholder="Enter your email"
           required
         />
-
         <label>Message</label>
         <textarea
           name="message"
           placeholder="Enter your message"
           required
         ></textarea>
-
         <button type="submit">Send Message</button>
       </form>
 
@@ -170,5 +150,30 @@
         Back to Home
       </button>
     </div>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(this);
+          const submitButton = this.querySelector('button[type="submit"]');
+          submitButton.textContent = "Sending...";
+
+          try {
+            await fetch("https://project-ab-fx9k.onrender.com/submit_contact", {
+              method: "POST",
+              body: formData,
+            });
+            alert("Message submitted successfully!");
+            this.reset();
+          } catch (error) {
+            alert("Error submitting form. Please try again.");
+          } finally {
+            submitButton.textContent = "Send Message";
+          }
+        });
+    </script>
   </body>
 </html>

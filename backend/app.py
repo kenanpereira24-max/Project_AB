@@ -1,20 +1,16 @@
-from flask import Flask, request, redirect
+from flask import Flask, request, jsonify
 from pymongo import MongoClient
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app) 
 
-# Connection string using your provided cluster link and password
 uri = "mongodb+srv://User:12345@cluster0.nkifvrg.mongodb.net/?appName=Cluster0"
 
 client = MongoClient(uri)
 db = client['sneha_jyothi']
 donate_collection = db['donate']
 contact_collection = db['contact']
-
-# Update this after you deploy the frontend to Vercel
-FRONTEND_URL = "https://project-ab-three.vercel.app/"
 
 @app.route('/submit_donation', methods=['POST'])
 def submit_donation():
@@ -25,7 +21,7 @@ def submit_donation():
         "address": request.form.get('address')
     }
     donate_collection.insert_one(donation_data)
-    return redirect(f"{FRONTEND_URL}/index.html")
+    return jsonify({"status": "success"})
 
 @app.route('/submit_contact', methods=['POST'])
 def submit_contact():
@@ -35,7 +31,6 @@ def submit_contact():
         "message": request.form.get('message')
     }
     contact_collection.insert_one(contact_data)
-    return redirect(f"{FRONTEND_URL}/index.html")
-
+    return jsonify({"status": "success"})
 
 app.run(debug=True)

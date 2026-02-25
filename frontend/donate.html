@@ -9,14 +9,12 @@
         background: url("background.jpeg") no-repeat center center fixed;
         background-size: cover;
       }
-
       header {
         background: rgba(10, 61, 145, 0.85);
         padding: 20px;
         text-align: center;
         color: white;
       }
-
       nav {
         background: rgba(18, 86, 200, 0.85);
         padding: 12px;
@@ -24,7 +22,6 @@
         justify-content: center;
         gap: 20px;
       }
-
       nav a {
         color: white;
         background: #0d47a1;
@@ -33,11 +30,9 @@
         text-decoration: none;
         font-weight: bold;
       }
-
       nav a:hover {
         background: #1565c0;
       }
-
       .container {
         margin-top: 60px;
         width: 70%;
@@ -47,7 +42,6 @@
         color: white;
         text-shadow: 2px 2px 5px black;
       }
-
       .donation-form {
         width: 50%;
         margin: auto;
@@ -61,7 +55,6 @@
         color: black;
         text-shadow: none;
       }
-
       .donation-form input,
       .donation-form textarea {
         padding: 10px;
@@ -72,12 +65,10 @@
         background: white;
         color: black;
       }
-
       .donation-form textarea {
         height: 120px;
         resize: vertical;
       }
-
       .donation-form button {
         background: #0d47a1;
         color: white;
@@ -88,7 +79,6 @@
         cursor: pointer;
         font-weight: bold;
       }
-
       .donation-form button:hover {
         background: #1565c0;
       }
@@ -110,14 +100,9 @@
     <div class="container">
       <h2>Donate Textbooks</h2>
 
-      <form
-        class="donation-form"
-        action="https://project-ab-fx9k.onrender.com/submit_donation"
-        method="POST"
-      >
+      <form class="donation-form" id="donateForm">
         <label>Your Name</label>
         <input type="text" name="name" placeholder="Enter your name" required />
-
         <label>Book Title</label>
         <input
           type="text"
@@ -125,7 +110,6 @@
           placeholder="Enter the book title"
           required
         />
-
         <label>Book Quantity</label>
         <input
           type="number"
@@ -133,16 +117,42 @@
           placeholder="Enter quantity"
           required
         />
-
         <label>Address</label>
         <textarea
           name="address"
           placeholder="Enter your complete address"
           required
         ></textarea>
-
         <button type="submit">Submit Donation</button>
       </form>
     </div>
+
+    <script>
+      document
+        .getElementById("donateForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(this);
+          const submitButton = this.querySelector('button[type="submit"]');
+          submitButton.textContent = "Submitting...";
+
+          try {
+            await fetch(
+              "https://project-ab-fx9k.onrender.com/submit_donation",
+              {
+                method: "POST",
+                body: formData,
+              },
+            );
+            alert("Donation submitted successfully!");
+            this.reset();
+          } catch (error) {
+            alert("Error submitting form. Please try again.");
+          } finally {
+            submitButton.textContent = "Submit Donation";
+          }
+        });
+    </script>
   </body>
 </html>

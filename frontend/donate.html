@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Donate Books</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial;
+        background: url("file:///C:/Users/Canice/OneDrive/Desktop/SL/Untitled%20design.png")
+          no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      header {
+        background: rgba(10, 61, 145, 0.85);
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+
+      nav {
+        background: rgba(18, 86, 200, 0.85);
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      nav a {
+        color: white;
+        background: #0d47a1;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        background: #1565c0;
+      }
+
+      .container {
+        margin-top: 60px;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 5px black;
+      }
+
+      h2 {
+        font-size: 35px;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 20px;
+        background: #0d47a1;
+        padding: 12px 25px;
+        border-radius: 6px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      .btn:hover {
+        background: #1565c0;
+      }
+
+      .donation-form {
+        width: 50%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 25px;
+        border-radius: 10px;
+        font-weight: bold;
+        color: black;
+        text-shadow: none;
+      }
+
+      .donation-form input,
+      .donation-form textarea {
+        padding: 10px;
+        border: 2px solid #0d47a1;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        background: white;
+        color: black;
+      }
+
+      .donation-form textarea {
+        height: 120px;
+        resize: vertical;
+      }
+
+      .donation-form button {
+        background: #0d47a1;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .donation-form button:hover {
+        background: #1565c0;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Donate Books</h1></header>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donate.html">Donate</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+      <a href="team.html">Team</a>
+      <a href="OurStory.html">Our Story</a>
+    </nav>
+
+    <div class="container">
+      <h2>Donate Textbooks</h2>
+
+      <form
+        class="donation-form"
+        action="http://127.0.0.1:5000/submit_donation"
+        method="POST"
+      >
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="Enter your name" required />
+
+        <label>Book Title</label>
+        <input
+          type="text"
+          name="book_title"
+          placeholder="Enter the book title"
+          required
+        />
+
+        <label>Book Quantity</label>
+        <input
+          type="number"
+          name="quantity"
+          placeholder="Enter quantity"
+          required
+        />
+
+        <label>Address</label>
+        <textarea
+          name="address"
+          placeholder="Enter your complete address"
+          required
+        ></textarea>
+
+        <button type="submit">Submit Donation</button>
+      </form>
+    </div>
+  </body>
+</html>

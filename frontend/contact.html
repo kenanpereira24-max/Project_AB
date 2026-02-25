@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Contact</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial;
+        background: url("background.jpeg") no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      header {
+        background: rgba(10, 61, 145, 0.85);
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+
+      nav {
+        background: rgba(18, 86, 200, 0.85);
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      nav a {
+        color: white;
+        background: #0d47a1;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        background: #1565c0;
+      }
+
+      .container {
+        margin-top: 60px;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        color: rgb(10, 10, 10);
+      }
+
+      h2 {
+        font-size: 35px;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 20px;
+        background: #0d47a1;
+        padding: 12px 25px;
+        border-radius: 6px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      .btn:hover {
+        background: #1565c0;
+      }
+
+      .donation-form {
+        width: 50%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 25px;
+        border-radius: 10px;
+        font-weight: bold;
+        color: black;
+        margin-bottom: 30px;
+        margin-top: 30px;
+      }
+
+      .donation-form input,
+      .donation-form textarea {
+        padding: 10px;
+        border: 2px solid #0d47a1;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        background: white;
+        color: black;
+      }
+
+      .donation-form textarea {
+        height: 120px;
+        resize: vertical;
+      }
+
+      .donation-form button {
+        background: #0d47a1;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .donation-form button:hover {
+        background: #1565c0;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Contact Us</h1></header>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donate.html">Donate</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+      <a href="team.html">Team</a>
+      <a href="OurStory.html">Our Story</a>
+    </nav>
+
+    <div class="container">
+      <h2>Contact Us</h2>
+
+      <h3>Our Branch Addresses</h3>
+
+      <p>
+        <strong>Bangalore Branch</strong><br />
+        No. 49, Thagachaguppe Village, VIT College Road,<br />
+        Near Mysore Road, Kumbalagudu,<br />
+        P.O. Kengeri Hobli, Bangalore South,<br />
+        Bangalore – 560074<br />
+        Phone: +91-8022747070
+      </p>
+
+      <p>
+        <strong>Ramanagara Branch</strong><br />
+        #19, Snehanagara (Batthamgere), Near Dedderi Grama,<br />
+        B South Mysore Road, Ganakal Post,<br />
+        Bidadi Hobli, Ramanagara Taluk & District – 562109<br />
+        Phone: +91-8022747070 / 9448164099
+      </p>
+
+      <p>
+        <strong>Mysore Branch</strong><br />
+        No. 59, Varuna Village, Near Ooty Road,<br />
+        Varuna (P.O), Varuna (Hobli),<br />
+        Mysore Taluk, Mysore – 570010<br />
+        Phone: +91-9448164099
+      </p>
+
+      <h3>Call or Email Us for Donations or More Information</h3>
+
+      <p>
+        <strong>Phone:</strong><br />
+        +91-9448164099 & 9480739629
+      </p>
+
+      <p>
+        <strong>Email:</strong><br />
+        murthytg.2011@gmail.com
+      </p>
+
+      <h3>Send Us a Message</h3>
+      <form
+        class="donation-form"
+        action="http://127.0.0.1:5000/submit_contact"
+        method="POST"
+      >
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="Enter your name" required />
+
+        <label>Email Address</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label>Message</label>
+        <textarea
+          name="message"
+          placeholder="Enter your message"
+          required
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <button
+        onclick="location.href = 'index.html'"
+        style="
+          margin-bottom: 40px;
+          padding: 12px 25px;
+          background: #0d47a1;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+        "
+      >
+        Back to Home
+      </button>
+    </div>
+  </body>
+</html>
